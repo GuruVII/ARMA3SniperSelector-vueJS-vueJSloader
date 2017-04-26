@@ -1,0 +1,34 @@
+<template>
+  <div id="app" class="container">
+    <input-name></input-name>
+    <names :names="names"></names>
+  </div>
+</template>
+
+<script>
+import Jquery from "jquery"
+import Materialize from "materialize-css"
+import InputName from './components/Input'
+import Names from './components/Names'
+
+
+export default {
+  name: 'app',
+  components: {
+    InputName,
+    Names
+  },
+  data () {
+    return {
+      names: ["Jure", "Janez", "Guru"]
+    }
+  },
+  methods:{
+    deletePerson: function(index) {
+     this.names.splice(index, 1);
+    }
+  }
+}
+</script>
+
+<style src="materialize-css/dist/css/materialize.min.css"></style>
