@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app" class="container" v-on:addNameEvent="addNameEvent"><!--This listens for an $emit from a child -->
     <input-name></input-name>
     <names :names="names"></names>
   </div>
@@ -20,6 +20,11 @@ export default {
   data () {
     return {
       names: ["Jure", "Janez", "Guru"]
+    }
+  },
+  methods: {
+    addNameEvent: function(){
+      console.log("dela")
     }
   }
 }
