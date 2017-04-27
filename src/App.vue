@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import Jquery from "jquery"
 import Materialize from "materialize-css"
 import InputName from './components/Input'
 import Names from './components/Names'
@@ -22,13 +21,9 @@ export default {
     return {
       names: ["Jure", "Janez", "Guru"]
     }
-  },
-  methods:{
-    deletePerson: function(index) {
-     this.names.splice(index, 1);
-    }
   }
 }
 </script>
 
 <style src="materialize-css/dist/css/materialize.min.css"></style>
+
