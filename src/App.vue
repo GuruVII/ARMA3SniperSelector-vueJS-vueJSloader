@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="container" v-on:addNameEvent="addNameEvent"><!--This listens for an $emit from a child -->
-    <input-name></input-name>
+  <div id="app" class="container"><!--This listens for an $emit from a child -->
+    <input-name @addNameEvent="addNameEvent"></input-name>
     <names :names="names"></names>
   </div>
 </template>
@@ -23,8 +23,8 @@ export default {
     }
   },
   methods: {
-    addNameEvent: function(){
-      console.log("dela")
+    addNameEvent: function(name){
+      this.names.push(name)
     }
   }
 }
