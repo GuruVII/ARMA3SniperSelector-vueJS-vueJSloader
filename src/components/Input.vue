@@ -1,17 +1,15 @@
 <template>
-  <div class="input-name row">
+  <div class="row">
     
   
     <form class="col s12">
       <div class="row"> 
         <div class="input-field col s6 offset-s3">
-          <input id="player_name" type="text" v-model="inputName" autofocus @keyup.enter="addName">
+          <input id="player_name" type="text" v-model="inputName" autofocus @keyup.enter="addName" :disabled="!snipersNotSelected">
           <!-- forms with a single input behave strangely, mine reloaded if entered it and pressed enter -->
           <input type="text" class="hidden-input">
           <label for="player_name">Player Name</label>
-          <span class="error-test" v-if="inputName == ''">{{errorMsg}}</span>       
-          <p>{{inputName}}</p>
-          
+          <span class="error-test" v-if="inputName == ''">{{errorMsg}}</span>          
         </div>
       </div>    
     </form>
@@ -22,11 +20,12 @@
 
 <script>
 export default {
-  name: 'input-name',
+  name: 'inputName',
+  props: ["snipersNotSelected"],
   data () {
     return {
       inputName:"",
-      errorMsg: ""
+      errorMsg: "",
     }
   },
   methods:{
@@ -35,7 +34,6 @@ export default {
           this.$emit("addNameEvent", this.inputName)
           this.inputName = ""
           this.errorMsg = ""
-
         }
         else {
           this.errorMsg = "Please enter a name"

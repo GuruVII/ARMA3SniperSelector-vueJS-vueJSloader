@@ -1,10 +1,10 @@
 <template>
-  <div class="names row">
+  <div class="row">
     <div class="col s6 offset-s3">
     <h5>Inputted names:</h5>
       <ul>
-        <li v-for="name in names" class="center-align">
-        <p>{{name}} <i class="tiny material-icons clear-icon" @click="deletePerson">clear</i></p></li>
+        <li v-for="name in names" >
+        <p class="center-align">{{name}} <i class="tiny material-icons clear-icon" @click="deletePerson">clear</i></p></li>
 
       </ul>
     </div>
