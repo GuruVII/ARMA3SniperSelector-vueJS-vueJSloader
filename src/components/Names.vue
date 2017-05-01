@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col s6 offset-s3">
+    <div class="col s6 offset-s3" v-if="names.length > 0">
     <h5>Inputted names:</h5>
       <ul>
         <li v-for="name in names" >

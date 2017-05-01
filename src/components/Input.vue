@@ -5,10 +5,12 @@
     <form class="col s12">
       <div class="row"> 
         <div class="input-field col s6 offset-s3">
-          <input id="player_name" type="text" v-model="inputName" autofocus @keyup.enter="addName" :disabled="!snipersNotSelected">
+          <input id="player_name" class="validate" placeholder="Input player name" type="text" v-model="inputName" autofocus @keyup.enter="addName" :disabled="!snipersNotSelected">
           <!-- forms with a single input behave strangely, mine reloaded if entered it and pressed enter -->
-          <input type="text" class="hidden-input">
-          <label for="player_name">Player Name</label>
+          <label for="player_name">Payer Name</label>
+          <div class="input-field hidden-input">
+            <input type="text">
+          </div>
           <span class="error-test" v-if="inputName == ''">{{errorMsg}}</span>          
         </div>
       </div>    
