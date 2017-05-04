@@ -2,8 +2,11 @@
   <div id="app" class="container"><!--This listens for an $emit from a child -->
     <loading-screen :currentlyLoadingProp="currentlyLoading" v-if="currentlyLoading" @loadingComplete="loadingComplete"></loading-screen>
     <input-name @addNameEvent="addNameEvent" :snipersNotSelected="snipersNotSelected" v-show="!currentlyLoading"></input-name> 
-    <sniper-selector :names="names" @snipersSelected="snipersSelected" v-show="!currentlyLoading"></sniper-selector>
+    <transition name="fade">
+      <sniper-selector :names="names" @snipersSelected="snipersSelected" v-show="!currentlyLoading"></sniper-selector>
+    </transition>
     <names :names="names" v-if="snipersNotSelected"></names>
+    <pro-tips></pro-tips>
   </div>
 </template>
 
@@ -13,6 +16,7 @@ import InputName from './components/Input'
 import Names from './components/Names'
 import SniperSelector from './components/selectButton'
 import LoadingScreen from './components/loadingScreen'
+import ProTips from './components/proTips'
 
 
 export default {
@@ -21,7 +25,8 @@ export default {
     InputName,
     Names,
     SniperSelector,
-    LoadingScreen
+    LoadingScreen,
+    ProTips
   },
   data () {
     return {
@@ -46,4 +51,15 @@ export default {
 </script>
 
 <style src="materialize-css/dist/css/materialize.min.css"></style>
+<style scoped>
+.fade-enter-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
+}
+.fade-leave-active,  {
+  transition: opacity 0s
+}
+</style>
 
