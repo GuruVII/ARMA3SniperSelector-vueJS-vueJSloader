@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="container"><!--This listens for an $emit from a child -->
-    <loading-screen :currentlyLoadingProp="currentlyLoading" v-if="currentlyLoading"></loading-screen>
-    <input-name @addNameEvent="addNameEvent" :snipersNotSelected="snipersNotSelected"></input-name> 
-    <sniper-selector :names="names" @snipersSelected="snipersSelected"></sniper-selector>
+    <loading-screen :currentlyLoadingProp="currentlyLoading" v-if="currentlyLoading" @loadingComplete="loadingComplete"></loading-screen>
+    <input-name @addNameEvent="addNameEvent" :snipersNotSelected="snipersNotSelected" v-show="!currentlyLoading"></input-name> 
+    <sniper-selector :names="names" @snipersSelected="snipersSelected" v-show="!currentlyLoading"></sniper-selector>
     <names :names="names" v-if="snipersNotSelected"></names>
   </div>
 </template>
@@ -37,6 +37,9 @@ export default {
     snipersSelected: function(){
       this.snipersNotSelected = false;
       this.currentlyLoading = true;
+    },
+    loadingComplete: function(){
+      this.currentlyLoading = false;
     }
   }
 }

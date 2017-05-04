@@ -18,7 +18,6 @@
       </div>
       <div id="loading-text" class="center-align">
         <p>{{loadingText}}</p>
-        <p>{{currentlyLoadingProp}}</p>
       </div>
     </div>
 </div>
@@ -29,32 +28,35 @@ export default {
   name: 'LoadingScreen',
   props: ["currentlyLoadingProp"],
   data(){
-    return{loadingTextArray: ["Annexig Sweden...", "Calculating the fate of the galaxy...", "Weighing Hunter...", "Meassuring Hella's gayness...", "Looking into the future...", "Aligning the planets...", "1 + 1 = ?...", "Poking Mobinet...", "LOLing at Karton...", "Going potty..."],
-    loadingText: "starting selection...",
-    currentlyLoading: this.currentlyLoadingProp
+    return{loadingTextArray: ["Annexing Sweden...", "Calculating the fate of the galaxy...", "Weighing Hunter...", "Meassuring Hella's gayness...", "Looking into the future...", "Aligning the planets...", "1 + 1 = ?...", "Poking Mobinet...", "LOLing at Karton...", "Going potty..."],
+    loadingText: "starting selection..."
   }
   },
   methods: {
     loadingScreenTextCrawl: function(){
-      let max = Math.floor((Math.random() * 5) + 4); //determines max number of loading text that will be displayed
+      let max = Math.floor((Math.random() * 5) + 4); //determines max number of loading text that will be displayed 
       for (let i = 0; i <= max; i++){
         let interval = Math.floor((Math.random() * 2000) + 500)
         console.log(interval);
-        setTimeout(function(){
-          this.loadingText = this.loadingTextArray[Math.floor((Math.random() * this.loadingTextArray.length))]
-        }, interval)
-      }
+        ( (i) =>{
+          setTimeout(() => {
+          let selectedText = Math.floor((Math.random() * this.loadingTextArray.length))
+          this.loadingText = this.loadingTextArray[selectedText]
+          this.loadingTextArray.splice(selectedText, 1)
+          if ( i == max){
+            this.$emit("loadingComplete")
+          }
+        }, interval * i)
+        })(i);
+
+      };
+
+
     }
   },
-  watch: {
-    currentlyLoading: function () {
-      console.log("znotraj")
-      if (this.currentlyLoadingProp == true){
-        console.log("2x znotraj")
-        this.loadingScreenTextCrawl()
-      }
+  mounted(){
+    this.loadingScreenTextCrawl()
     }
-  }
 }
 </script>
 
