@@ -39,9 +39,13 @@ export default {
     addNameEvent: function(name){
       this.names.push(name)
     },
-    snipersSelected: function(){
+    snipersSelected: function(value){
       this.snipersNotSelected = false;
-      this.currentlyLoading = true;
+      console.log("value: " + value);
+      if (value > 0){ //do the loading screen only when more than 2 snipers were inputted
+        this.currentlyLoading = true;
+      }
+      
     },
     loadingComplete: function(){
       this.currentlyLoading = false;

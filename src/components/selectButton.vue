@@ -32,16 +32,18 @@ export default {
   props: ["names"],
   methods:{
     selectSnipers: function(){
+      // checks if only two snipers were selected
       if (this.names.length == 2){
         this.annoyed = true       
       }
+      //selects the snipers from the inputted snipers
       for (var i = 0; i < 2; i++){
         var winner = Math.floor(Math.random() * (this.names.length - 1))
        this.selectedSnipers.push(this.names[winner]);
        this.names.splice(winner, 1);
       }
       this.snipersSelected = true;
-      this.$emit("snipersSelected");
+      this.$emit("snipersSelected", this.names.length);
     }
   }
 }

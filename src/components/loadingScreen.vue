@@ -36,8 +36,7 @@ export default {
     loadingScreenTextCrawl: function(){
       let max = Math.floor((Math.random() * 5) + 4); //determines max number of loading text that will be displayed 
       for (let i = 0; i <= max; i++){
-        let interval = Math.floor((Math.random() * 2000) + 500)
-        console.log(interval);
+        let interval = Math.floor((Math.random() * 2000) + 500);
         ( (i) =>{
           setTimeout(() => {
           let selectedText = Math.floor((Math.random() * this.loadingTextArray.length))
