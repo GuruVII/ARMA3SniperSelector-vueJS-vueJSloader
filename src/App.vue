@@ -1,12 +1,14 @@
 <template>
   <div id="app" class="container"><!--This listens for an $emit from a child -->
     <loading-screen :currentlyLoadingProp="currentlyLoading" v-if="currentlyLoading" @loadingComplete="loadingComplete"></loading-screen>
-    <input-name @addNameEvent="addNameEvent" :snipersNotSelected="snipersNotSelected" v-show="!currentlyLoading"></input-name> 
+    
+    <input-name @addNameEvent="addNameEvent" :snipersNotSelected="snipersNotSelected" v-show="!currentlyLoading"></input-name>
     <transition name="fade">
       <sniper-selector :names="names" @snipersSelected="snipersSelected" v-show="!currentlyLoading"></sniper-selector>
     </transition>
     <names :names="names" v-if="snipersNotSelected"></names>
     <pro-tips></pro-tips>
+    
   </div>
 </template>
 

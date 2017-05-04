@@ -77,7 +77,7 @@ export default {
 #loading-text{
     position: fixed;
     z-index: 1000;
-    margin-top: 25%;
+    margin-top: 30%;
     right: 0;
     left: 0;
 }
@@ -86,7 +86,6 @@ export default {
     background-color: #1a1a1a;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     position: fixed;
     left: 0;
     top: 100;

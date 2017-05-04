@@ -3,14 +3,14 @@
     <div class="col s12  center-align">
       <a class="waves-effect waves-light btn" :class="{disabled:((this.names.length < 2) || snipersSelected )}" @click="selectSnipers()">Select Snipers</a>
     </div>
-    <div class="col s6 offset-s3 margin-top-20px" v-if="snipersSelected && !annoyed">
+    <div class="col m6 offset-m3 s12 margin-top-20px" v-if="snipersSelected && !annoyed">
     <h5>The snipers are:</h5>
       <ul>
         <li v-for="name in selectedSnipers" class="center-align">
         <p :class="{ hella:(name.toLowerCase().includes('hel'))}">{{name}} <i class="tiny material-icons sniper-icon">done</i></p></li>
       </ul>
     </div>
-    <div class="col s8 offset-s2 center-align">
+    <div class="col m8 offset-m2 s12 center-align">
       <p v-if="annoyed">I won't even dignify this with a response. Or you know what, the snipers are Hella and Sorter</p>
     </div>
 

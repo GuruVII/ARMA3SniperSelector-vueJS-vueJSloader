@@ -4,7 +4,7 @@
   
     <form class="col s12">
       <div class="row"> 
-        <div class="input-field col s6 offset-s3">
+        <div class="input-field col m6 offset-m3 s12">
           <input id="player_name" class="validate" placeholder="Input player name" type="text" v-model="inputName" autofocus @keyup.enter="addName" :disabled="!snipersNotSelected">
           <div class="input-field hidden-input">
             <input type="text">
