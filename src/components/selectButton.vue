@@ -25,7 +25,8 @@ export default {
     return{
       snipersSelected: false,
       selectedSnipers: [],
-      annoyed: false
+      annoyed: false,
+      currentlyLoading: false
     }
   },
   props: ["names"],

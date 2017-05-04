@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="container"><!--This listens for an $emit from a child -->
+    <loading-screen :currentlyLoadingProp="currentlyLoading" v-if="currentlyLoading"></loading-screen>
     <input-name @addNameEvent="addNameEvent" :snipersNotSelected="snipersNotSelected"></input-name> 
     <sniper-selector :names="names" @snipersSelected="snipersSelected"></sniper-selector>
     <names :names="names" v-if="snipersNotSelected"></names>
@@ -11,6 +12,7 @@ import Materialize from "materialize-css"
 import InputName from './components/Input'
 import Names from './components/Names'
 import SniperSelector from './components/selectButton'
+import LoadingScreen from './components/loadingScreen'
 
 
 export default {
@@ -18,12 +20,14 @@ export default {
   components: {
     InputName,
     Names,
-    SniperSelector
+    SniperSelector,
+    LoadingScreen
   },
   data () {
     return {
       names: [],
-      snipersNotSelected: true
+      snipersNotSelected: true,
+      currentlyLoading: false
     }
   },
   methods: {
@@ -32,6 +36,7 @@ export default {
     },
     snipersSelected: function(){
       this.snipersNotSelected = false;
+      this.currentlyLoading = true;
     }
   }
 }
