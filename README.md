@@ -20,7 +20,7 @@ npm run build --report
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-##FAQ
+## FAQ
 
 #### What is this app?
 In general this is an app written using vueJS, which accepts inputs and then selects two of those inputs at random. More specifically it is an app that selects two snipers for a game of ARMA sniper hunt, out of all the people that want to be snipers.
