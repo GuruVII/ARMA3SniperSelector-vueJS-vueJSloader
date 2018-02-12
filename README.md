@@ -26,7 +26,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 In general this is an app written using vueJS, which accepts inputs and then selects two of those inputs at random. More specifically it is an app that selects two snipers for a game of ARMA sniper hunt, out of all the people that want to be snipers.
 
 #### Why did you make such an app?  
-Three reasons, the first one, our group does indeed need it.The second one was that I wanted to make something custom tailer to out group and the thid reason was that I wanted to make an app using more vueJS and vue-loader.
+Three reasons, the first one, our group does indeed need it. The second one was that I wanted to make something custom tailored to our group and the third reason was that I wanted to make an app using more vueJS and vue-loader.
 
 ### DEMO
 [Link](http://guru.mobiusit.net/sniper-selector/)
